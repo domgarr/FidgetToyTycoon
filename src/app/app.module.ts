@@ -10,9 +10,21 @@ import { DataViewModule } from "primeng/dataview";
 import { PanelModule } from "primeng/panel";
 import { ButtonModule } from "primeng/button";
 import { ProgressBarModule } from "primeng/progressbar";
+import { RatingModule } from "primeng/rating";
+import { FilterService, MessageService } from "primeng/api";
+import { PrimeNGConfig } from "primeng/api";
+import { ViewProductComponent } from "./view-product/view-product.component";
+import { ProductListComponent } from "./product-list/product-list.component";
+import { ToastModule } from "primeng/toast";
 
 @NgModule({
-  declarations: [AppComponent, OrderFormComponent, CreateProductComponent],
+  declarations: [
+    AppComponent,
+    OrderFormComponent,
+    CreateProductComponent,
+    ViewProductComponent,
+    ProductListComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -20,8 +32,10 @@ import { ProgressBarModule } from "primeng/progressbar";
     PanelModule,
     ButtonModule,
     ProgressBarModule,
+    RatingModule,
+    ToastModule,
   ],
-  providers: [PersonService],
+  providers: [PersonService, FilterService, PrimeNGConfig, MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

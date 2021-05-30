@@ -1,35 +1,40 @@
-<!-- <p-knob [(ngModel)]="percentageComplete" [disabled]="true"></p-knob> -->
-<ng-template let-product pTemplate="gridItem">
-  <div class="p-col-12 p-md-4">
-    <div class="product-grid-item card">
-      <div class="product-grid-item-top">
-        <div>
-          <i class="pi pi-tag product-category-icon"></i>
-          <span class="product-category">{{ product.category }}</span>
-        </div>
+<div class="p-grid">
+  <div class="p-col-12">
+    <div class="p-grid">
+      <div class="product-name p-sm-col-6">
+        {{ product.name }}
+      </div>
+      <div>
+        <p class="product-price p-sm-col-6">${{ product.price }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="p-col-12">
+    <i class="pi pi-tag product-category-icon"></i
+    ><span class="product-category">{{ product.category }}</span>
+    <div class="product-list-item">
+      <img
+        [src]="
+          'https://www.primefaces.org/primeng/showcase/assets/showcase/images/demo/product/bamboo-watch.jpg'
+        "
+        [alt]="product.name"
+      />
+      <div class="product-list-detail">
         <span
           [class]="
             'product-badge status-' + product.inventoryStatus.toLowerCase()
           "
           >{{ product.inventoryStatus }}</span
         >
-      </div>
-      <div class="product-grid-item-content">
-        <img
-          [src]="'assets/showcase/images/demo/product/' + product.image"
-          [alt]="product.name"
-        />
-        <div class="product-name">{{ product.name }}</div>
-        <div class="product-description">{{ product.description }}</div>
-        <p-progressBar [value]="percentageComplete"></p-progressBar>
-      </div>
-      <div class="product-grid-item-bottom">
-        <span class="product-price">${{ product.price }}</span>
+        <p>{{ product.stock }}</p>
         <p-button
           icon="pi pi-shopping-cart"
-          [disabled]="product.inventoryStatus === 'OUTOFSTOCK'"
+          label="BUILD"
+          (click)="onBuild()"
+          [disabled]="isProductBuilding"
         ></p-button>
+        <p-progressBar [value]="percentageComplete"></p-progressBar>
       </div>
     </div>
   </div>
-</ng-template>
+</div>

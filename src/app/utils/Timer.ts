@@ -1,7 +1,7 @@
 import { Observable } from "rxjs";
 
 export class Timer {
-  readonly interval: number = 100;
+  readonly interval: number = 1000;
 
   constructor() {}
 
