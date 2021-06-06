@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Red Bouncy Ball",
+    "price": "1",
+    "category": "Bouncy Ball",
+    "quantity": 0,
+    "productionLength": 1,
+    "imgSrc": "assets/fidget/red_bouncy_ball.png"
+  },
+  {
+    "id": 2,
+    "name": "Blue Bouncy Ball",
+    "price": "3",
+    "category": "Bouncy Ball",
+    "quantity": 0,
+    "productionLength": 3,
+    "imgSrc": "assets/fidget/blue_bouncy_ball.png"
+  },
+  {
+    "id": 3,
+    "name": "Simple Dimple",
+    "price": "5",
+    "category": "Dimple",
+    "quantity": 0,
+    "productionLength": 5,
+    "imgSrc": "assets/fidget/simple_dimple.png"
+  },
+  {
+    "id": 4,
+    "name": "Simple Cube",
+    "price": "10",
+    "category": "Cube",
+    "quantity": 0,
+    "productionLength": 60,
+    "imgSrc": "assets/fidget/cube.png"
+  }
+]

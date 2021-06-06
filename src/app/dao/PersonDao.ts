@@ -3,14 +3,25 @@ import { PersonRepository } from "../repository/PersonRepository";
 import * as personData from "../json/PersonData.json";
 
 export class PersonDao extends PersonRepository {
-  getPerson(id: number): Person {
-    throw new Error("Method not implemented.");
+  constructor() {
+    super(personData["default"]);
   }
-    
+
+  getPerson(id: number): Promise<Person> {
+    return new Promise<Person>((resolve, reject) => {
+      this.persons.forEach((person: Person) => {
+        if (person.id == id) {
+          resolve(person);
+        }
+      });
+      reject(null);
+    });
+  }
+
   getRandomPerson(): Promise<Person> {
-    let numberOfPersons = personData["default"].length - 1;
+    let numberOfPersons = this.persons.length - 1;
     let random = Math.floor(Math.random() * numberOfPersons);
-    let randomPerson: Person = personData["default"][random];
+    let randomPerson: Person = this.persons[random];
     setPayment(randomPerson);
     return new Promise<Person>((resolve, reject) => {
       setTimeout(() => {

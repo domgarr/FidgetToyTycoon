@@ -16,6 +16,22 @@ import { PrimeNGConfig } from "primeng/api";
 import { ViewProductComponent } from "./view-product/view-product.component";
 import { ProductListComponent } from "./product-list/product-list.component";
 import { ToastModule } from "primeng/toast";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BadgeModule } from "primeng/badge";
+import { CardModule } from "primeng/card";
+import { Menubar, MenubarModule } from "primeng/menubar";
+import { InputTextModule } from "primeng/inputtext";
+
+import { ProgressSpinnerModule } from "primeng/progressspinner";
+import { TagModule } from "primeng/tag";
+import {
+  NgxWebstorageModule,
+  StrategyCacheService,
+  StrategyIndex,
+} from "ngx-webstorage";
+import { ProductService } from "./service/product.service";
+import { MenuComponent } from "./menu/menu.component";
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +40,7 @@ import { ToastModule } from "primeng/toast";
     CreateProductComponent,
     ViewProductComponent,
     ProductListComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,8 +51,25 @@ import { ToastModule } from "primeng/toast";
     ProgressBarModule,
     RatingModule,
     ToastModule,
+    BrowserAnimationsModule,
+    BadgeModule,
+    ProgressSpinnerModule,
+    TagModule,
+    NgxWebstorageModule.forRoot(),
+    CardModule,
+    MenubarModule,
+    InputTextModule,
+    AppRoutingModule,
   ],
-  providers: [PersonService, FilterService, PrimeNGConfig, MessageService],
+  providers: [
+    PersonService,
+    FilterService,
+    PrimeNGConfig,
+    MessageService,
+    ProductService,
+    StrategyIndex,
+    StrategyCacheService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

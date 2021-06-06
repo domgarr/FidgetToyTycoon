@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import { Order } from "../models/Order";
 import { Person } from "../models/Person";
-import { PersonService } from "../service/person.service";
+import { Product } from "../models/product";
+import { OrderService } from "../service/order.service";
 
 @Component({
   selector: "app-order-form",
@@ -8,18 +10,15 @@ import { PersonService } from "../service/person.service";
   styleUrls: ["./order-form.component.css"],
 })
 export class OrderFormComponent implements OnInit {
-  constructor(private personService: PersonService) {}
-  public person: Person = new Person();
+  constructor(private orderService: OrderService) {}
+  public order: {};
 
   ngOnInit() {
-    this.personService.getRandomPerson().then(
-      (person: Person) => {
-        this.person = person;
-      },
-      (rejected) => {
-        console.log(rejected);
-      }
-    );
-    this.person.firstName = "Baylee";
+    this.generateOrder();
+  }
+
+  generateOrder() {
+    this.order = Object.create(this.orderService.generateOrder());
+    console.log(this.order);
   }
 }

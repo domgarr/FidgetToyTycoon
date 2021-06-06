@@ -1,8 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core";
-import { MessageService } from "primeng/api";
 import { Product } from "../models/product";
 import { ProductionService } from "../service/production.service";
-import { Timer } from "../utils/Timer";
 
 @Component({
   selector: "app-create-product",
@@ -34,8 +32,9 @@ export class CreateProductComponent implements OnInit {
     production.subscribe((percentageDone) => {
       this.percentageComplete = percentageDone;
       if (percentageDone >= 100) {
-        this.percentageComplete = 100;
-        this.product.stock++;
+        setTimeout(() => {
+          this.percentageComplete = 0;
+        }, 750);
       }
     });
   }

@@ -1,40 +1,39 @@
-<div class="p-grid">
-  <div class="p-col-12">
-    <div class="p-grid">
-      <div class="product-name p-sm-col-6">
-        {{ product.name }}
-      </div>
-      <div>
-        <p class="product-price p-sm-col-6">${{ product.price }}</p>
-      </div>
-    </div>
+<div class="p-col-12">
+  <div class="product-name">
+    {{ product.name }}
   </div>
-  <div class="p-col-12">
-    <i class="pi pi-tag product-category-icon"></i
-    ><span class="product-category">{{ product.category }}</span>
-    <div class="product-list-item">
-      <img
-        [src]="
-          'https://www.primefaces.org/primeng/showcase/assets/showcase/images/demo/product/bamboo-watch.jpg'
-        "
-        [alt]="product.name"
-      />
-      <div class="product-list-detail">
-        <span
-          [class]="
-            'product-badge status-' + product.inventoryStatus.toLowerCase()
-          "
-          >{{ product.inventoryStatus }}</span
+</div>
+<div class="p-col-12">
+  <i class="pi pi-tag product-category-icon"></i
+  ><span class="product-category">{{ product.category }}</span>
+  <div class="product-list-item">
+    <img [src]="product.imgSrc" [alt]="product.name" />
+    <div class="product-list-detail">
+      <p class="product-price">${{ product.price }}</p>
+
+      <p-button
+        icon="pi pi-shopping-cart"
+        label="BUILD"
+        (click)="onBuild()"
+        [disabled]="isProductBuilding"
+      ></p-button>
+
+      <div>
+        <p-tag
+          *ngIf="product.quantity > 0; else out_of_stock"
+          severity="success"
+          >Stock: {{ product.quantity }}</p-tag
         >
-        <p>{{ product.stock }}</p>
-        <p-button
-          icon="pi pi-shopping-cart"
-          label="BUILD"
-          (click)="onBuild()"
-          [disabled]="isProductBuilding"
-        ></p-button>
-        <p-progressBar [value]="percentageComplete"></p-progressBar>
+
+        <ng-template #out_of_stock>
+          <p-tag severity="danger">OUT OF STOCK</p-tag>
+        </ng-template>
       </div>
+
+      <p-progressBar
+        class="p-as-center"
+        [value]="percentageComplete"
+      ></p-progressBar>
     </div>
   </div>
 </div>

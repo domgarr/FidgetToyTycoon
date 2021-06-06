@@ -1,0 +1,27 @@
+import { Component, OnInit } from "@angular/core";
+import { MenuItem } from "primeng/api";
+
+@Component({
+  selector: "app-menu",
+  templateUrl: "./menu.component.html",
+  styleUrls: ["./menu.component.css"],
+})
+export class MenuComponent implements OnInit {
+  items: MenuItem[];
+  constructor() {}
+
+  ngOnInit() {
+    this.items = [
+      {
+        label: "Orders",
+        icon: "pi pi-fw pi-file",
+        routerLink: ["orders"],
+      },
+      {
+        label: "Production",
+        icon: "pi pi-fw pi-power-off",
+        routerLink: ["production"],
+      },
+    ];
+  }
+}
