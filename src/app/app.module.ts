@@ -32,6 +32,7 @@ import {
 import { ProductService } from "./service/product.service";
 import { MenuComponent } from "./menu/menu.component";
 import { AppRoutingModule } from './app-routing.module';
+import { OrderListComponent } from './order-list/order-list.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AppRoutingModule } from './app-routing.module';
     ViewProductComponent,
     ProductListComponent,
     MenuComponent,
+    OrderListComponent,
   ],
   imports: [
     BrowserModule,
